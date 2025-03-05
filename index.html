@@ -3,21 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="/Assets/Styles/style.css">
     <title>Document</title>
 </head>
 <body>
 
-    <div class="name">
-        <h1>WELCOME TO THE BLOG</h1>
-    </div>
+
+
+    <section>
+        <h1>Welcome to the show</h1>
+        <a href="#" class="first-screen" address="true"></a>
+    </section>
+
+    <section class="second-screen">
+        <h1>Hello world</h1>
+    </section>
+
 
     <div class="racing-stripes">
         <div class="stripe red"></div>
         <div class="stripe orange"></div>
         <div class="stripe yellow"></div>
     </div>
-    
 
+    
+    <div id="cursor">
+        <div class="outer"></div>
+        <div class="content-wrap">
+            <div class="text"></div>
+        </div>
+    </div>
+    <script src="/Assets/js/main.js"></script>
+    <script>
+        // Disable mouse scrolling initially
+        document.body.style.overflow = 'hidden';
+  
+        $(document).ready(function() {
+          // When the scroll-down button is clicked
+          $('.first-screen').click(function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            
+            // Scroll to the second section
+            $('html, body').animate({
+              scrollTop: $('section.second-screen').offset().top
+            }, 'slow');
+            
+            // Allow scrolling after button press
+            document.body.style.overflow = 'auto';
+          });
+        });
+      </script>
 </body>
 </html>
