@@ -12,7 +12,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     height: 100vh;
-    background-color: black; /* Dark theme for racing vibes */
+    background-color: black; 
     color: white;
 }
 
@@ -23,16 +23,16 @@ h1 {
 }
 
 .racing-stripes {
-    width: 30px; /* Adjust width to fit stripes */
+    width: 30px; 
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    display: flex; /* Places stripes side by side */
+    display: flex;
 }
 
 .stripe {
-    width: 10px; /* Adjust for thinner or thicker stripes */
+    width: 10px; 
     height: 100%;
 }
 
@@ -41,14 +41,14 @@ h1 {
 .yellow { background-color: yellow; }
 
 .content {
-    margin-left: 50px; /* Space to avoid overlapping with stripes */
+    margin-left: 50px; 
     padding: 20px;
 }
 
 .custom-cursor {
     width: 20px;
     height: 20px;
-    background-color: white; /* Default color */
+    background-color: white; 
     border-radius: 50%;
     position: absolute;
     pointer-events: none;

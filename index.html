@@ -36,20 +36,20 @@
     </div>
     <script src="/Assets/js/main.js"></script>
     <script>
-        // Disable mouse scrolling initially
+
         document.body.style.overflow = 'hidden';
   
         $(document).ready(function() {
-          // When the scroll-down button is clicked
+
           $('.first-screen').click(function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
+            event.preventDefault(); 
             
-            // Scroll to the second section
+
             $('html, body').animate({
               scrollTop: $('section.second-screen').offset().top
             }, 'slow');
             
-            // Allow scrolling after button press
+
             document.body.style.overflow = 'auto';
           });
         });
