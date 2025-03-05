@@ -1,10 +1,34 @@
-
 body {
-    background-color: #498b8c;
-    font-family: Arial, sans-serif; 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: black; /* Dark theme for racing vibes */
+    color: white;
 }
 
 h1 {
-    color: #fff;
     text-align: center;
+}
+
+.racing-stripes {
+    width: 30px; /* Adjust width to fit stripes */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex; /* Places stripes side by side */
+}
+
+.stripe {
+    width: 10px; /* Adjust for thinner or thicker stripes */
+    height: 100%;
+}
+
+.red { background-color: red; }
+.orange { background-color: orange; }
+.yellow { background-color: yellow; }
+
+.content {
+    margin-left: 50px; /* Space to avoid overlapping with stripes */
+    padding: 20px;
 }
