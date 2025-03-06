@@ -1,3 +1,11 @@
+:root {
+    --red: #D05353;
+    --orange: #E58F65;
+    --yellow: #F9E784;
+    --beige: #F1E8B8;
+}
+
+
 @font-face {
     font-family:regular ;
     src: url(/Assets/fonts/Oswald/static/Oswald-Regular.ttf);
@@ -42,10 +50,10 @@ h1 {
     height: 100%;
 }
 
-.red { background-color: red; }
-.orange { background-color: orange; }
-.yellow { background-color: yellow; }
-.beige { background-color: #F1E8B8; }
+.red { background-color: var(--red); }
+.orange { background-color: var(--orange); }
+.yellow { background-color: var(--yellow); }
+.beige { background-color: var(--beige); }
 
 .content {
     margin-left: 50px; 
@@ -220,7 +228,7 @@ h1 {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(28, 27, 27);
     color: white;
     padding: 15px 20px;
     display: flex;
@@ -259,16 +267,16 @@ h1 {
 }
 
 .navbar a.red.active {
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid var(--red);
 }
 .navbar a.orange.active {
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid var(--orange);
 }
 .navbar a.yellow.active {
-    border-bottom: 3px solid yellow;
+    border-bottom: 3px solid var(--yellow);
 }
 .navbar a.beige.active {
-    border-bottom: 3px solid #F1E8B8;
+    border-bottom: 3px solid var(--beige);
 }
 
 /* Hover effect (optional) */
@@ -356,3 +364,409 @@ html {
     opacity: 0.3;
     transition: opacity 0.3s ease-in-out;
 }
+
+/* Portfolio Section */
+#portfolio {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Grid for the Portfolio */
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 20px; /* Space between items */
+}
+
+/* Style for each portfolio item */
+.portfolio-item {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.portfolio-item p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Hover effect for portfolio items */
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Set the default color for the h1 */
+section h1 {
+    transition: color 0.3s ease;
+}
+
+/* Apply color to the h1 when the section is active */
+#home h1 {
+    color: var(--red);
+}
+
+#portfolio h1 {
+    color: var(--orange);
+}
+
+#about h1 {
+    color: var(--yellow);
+}
+
+#contact h1 {
+    color: var(--beige);
+}
+
+/* Active navbar link and stripe styles */
+.navbar-link.red.active, #home h1 {
+    color: var(--red);
+}
+
+.navbar-link.orange.active, #portfolio h1 {
+    color: var(--orange);
+}
+
+.navbar-link.yellow.active, #about h1 {
+    color: var(--yellow);
+}
+
+.navbar-link.beige.active, #contact h1 {
+    color: var(--beige);
+}
+
+/* Set section padding */
+#about {
+    padding: 50px 20px;
+}
+
+/* Timeline container */
+.timeline {
+    position: relative;
+    margin-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-left: 2px solid #ccc;
+}
+
+/* Timeline items (bubbles) */
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* Timeline item content */
+.timeline-content {
+    position: relative;
+    margin-left: 30px;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.timeline-content p {
+    color: #555;
+    font-size: 16px;
+}
+
+/* Timeline circle (bubble) */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -9px; /* Positioning the circle */
+    top: 0;
+    width: 18px;
+    height: 18px;
+    background-color: #ff6f61; /* Custom color */
+    border-radius: 50%;
+    border: 2px solid #fff; /* White border around the circle */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline connecting line */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 18px;
+    width: 2px;
+    height: 30px; /* Adjust height to space out the items */
+    background-color: #ccc;
+}
+
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    width: 2px;
+    margin-left: -1.5px;
+    background-color: #f1f1f1;
+}
+
+.timeline>li {
+    position: relative;
+    margin-bottom: 50px;
+    min-height: 50px;
+}
+
+.timeline>li:before,
+.timeline>li:after {
+    content: " ";
+    display: table;
+}
+
+.timeline>li:after {
+    clear: both;
+}
+
+.timeline>li .timeline-panel {
+    float: right;
+    position: relative;
+    width: 100%;
+    padding: 0 20px 0 100px;
+    text-align: left;
+}
+
+.timeline>li .timeline-panel:before {
+    right: auto;
+    left: -15px;
+    border-right-width: 15px;
+    border-left-width: 0;
+}
+
+.timeline>li .timeline-panel:after {
+    right: auto;
+    left: -14px;
+    border-right-width: 14px;
+    border-left-width: 0;
+}
+
+.timeline>li .timeline-image {
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    margin-left: 0;
+    border: 7px solid #f1f1f1;
+    border-radius: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: #1ee2e7;
+}
+
+.timeline>li .timeline-image h4 {
+    margin-top: 12px;
+    font-size: 10px;
+    line-height: 14px;
+}
+
+.timeline>li.timeline-inverted>.timeline-panel {
+    float: right;
+    padding: 0 20px 0 100px;
+    text-align: left;
+}
+
+.timeline>li.timeline-inverted>.timeline-panel:before {
+    right: auto;
+    left: -15px;
+    border-right-width: 15px;
+    border-left-width: 0;
+}
+
+.timeline>li.timeline-inverted>.timeline-panel:after {
+    right: auto;
+    left: -14px;
+    border-right-width: 14px;
+    border-left-width: 0;
+}
+
+.timeline>li:last-child {
+    margin-bottom: 0;
+}
+
+.timeline .timeline-heading h4 {
+    margin-top: 0;
+    color: inherit;
+}
+
+.timeline .timeline-heading h4.subheading {
+    text-transform: none;
+}
+
+.timeline .timeline-body>p,
+.timeline .timeline-body>ul {
+    margin-bottom: 0;
+}
+
+.timeline .timeline-image.red {
+    background-color: var(--red); /* Red */
+}
+
+.timeline .timeline-image.orange {
+    background-color: var(--orange); /* Orange */
+}
+
+.timeline .timeline-image.yellow {
+    background-color: var(--yellow); /* Yellow */
+}
+
+.timeline .timeline-image.beige {
+    background-color: var(--beige) ; /* Beige */
+}
+
+.timeline .timeline-image h4 {
+    color: #fff; /* White text for visibility */
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 12px;
+}
+
+
+@media(min-width:768px) {
+    .timeline:before {
+        left: 50%;
+    }
+
+    .timeline>li {
+        margin-bottom: 100px;
+        min-height: 100px;
+    }
+
+    .timeline>li .timeline-panel {
+        float: left;
+        width: 41%;
+        padding: 0 20px 20px 30px;
+        text-align: right;
+    }
+
+    .timeline>li .timeline-image {
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+    }
+
+    .timeline>li .timeline-image h4 {
+        margin-top: 16px;
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .timeline>li.timeline-inverted>.timeline-panel {
+        float: right;
+        padding: 0 30px 20px 20px;
+        text-align: left;
+    }
+}
+
+@media(min-width:992px) {
+    .timeline>li {
+        min-height: 150px;
+    }
+
+    .timeline>li .timeline-panel {
+        padding: 0 20px 20px;
+    }
+
+    .timeline>li .timeline-image {
+        width: 150px;
+        height: 150px;
+        margin-left: -75px;
+    }
+
+    .timeline>li .timeline-image h4 {
+        margin-top: 30px;
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .timeline>li.timeline-inverted>.timeline-panel {
+        padding: 0 20px 20px;
+    }
+}
+
+@media(min-width:1200px) {
+    .timeline>li {
+        min-height: 170px;
+    }
+
+    .timeline>li .timeline-panel {
+        padding: 0 20px 20px 100px;
+    }
+
+    .timeline>li .timeline-image {
+        width: 170px;
+        height: 170px;
+        margin-left: -85px;
+    }
+
+    .timeline>li .timeline-image h4 {
+        margin-top: 40px;
+    }
+
+    .timeline>li.timeline-inverted>.timeline-panel {
+        padding: 0 100px 20px 20px;
+    }
+}
+
+

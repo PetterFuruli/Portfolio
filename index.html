@@ -27,8 +27,142 @@
     
     <!-- Section content -->
     <section id="home"><h1>Content</h1></section>
-    <section id="portfolio"><h1>Portfolio</h1></section>
-    <section id="about"><h1>About</h1></section>
+
+    <!-- Portfolio section with 6 boxes -->
+    <section id="portfolio">
+        <h1>Portfolio</h1>
+        <div class="portfolio">
+            <div class="portfolio-item" onclick="openModal('modal1')">
+                <img src="/Assets/images/Screenshot 2025-03-06 at 15.58.10.png" alt="Project 1">
+                <p>Project 1</p>
+            </div>
+            <div class="portfolio-item" onclick="openModal('modal2')">
+                <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                <p>Project 2</p>
+            </div>
+            <div class="portfolio-item" onclick="openModal('modal3')">
+                <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                <p>Project 3</p>
+            </div>
+            <div class="portfolio-item" onclick="openModal('modal4')">
+                <img src="https://via.placeholder.com/300x200" alt="Project 4">
+                <p>Project 4</p>
+            </div>
+            <div class="portfolio-item" onclick="openModal('modal5')">
+                <img src="https://via.placeholder.com/300x200" alt="Project 5">
+                <p>Project 5</p>
+            </div>
+            <div class="portfolio-item" onclick="openModal('modal6')">
+                <img src="https://via.placeholder.com/300x200" alt="Project 6">
+                <p>Project 6</p>
+            </div>
+        </div>
+
+        <!-- Modals for each project -->
+        <div class="modal" id="modal1">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <img src="/Assets/images/Screenshot 2025-03-06 at 15.58.10.png" alt="Project 1">
+                <p>Project 1 Details</p>
+            </div>
+        </div>
+        <div class="modal" id="modal2">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                <p>Project 2 Details</p>
+            </div>
+        </div>
+        <div class="modal" id="modal3">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Project 3">
+                <p>Project 3 Details</p>
+            </div>
+        </div>
+        <div class="modal" id="modal4">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Project 4">
+                <p>Project 4 Details</p>
+            </div>
+        </div>
+        <div class="modal" id="modal5">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal5')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Project 5">
+                <p>Project 5 Details</p>
+            </div>
+        </div>
+        <div class="modal" id="modal6">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal6')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Project 6">
+                <p>Project 6 Details</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h1>About</h1>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image red">
+                    <h4>Start</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Start of My UX Journey</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Here I began my exploration into UX design, learning the basics...</p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image orange">
+                    <h4>Phase 1</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>First UX Project</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>This was my first real UX design project where I applied my knowledge...</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image yellow">
+                    <h4>Phase 2</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Learning Figma and Prototyping</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>I dove deeper into Figma, learning how to create wireframes and interactive prototypes...</p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image beige">
+                    <h4>Phase 3</h4>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Internship Experience</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p>During my internship, I had the opportunity to work with real clients...</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    
+    
+    
     <section id="contact"><h1>Contact</h1></section>
     
 
@@ -41,50 +175,65 @@
 
     <script src="/Assets/js/main.js"></script>
     <script>
-        const navbarLinks = document.querySelectorAll('.navbar-link');
-const sections = document.querySelectorAll('section');
-const stripes = document.querySelectorAll('.stripe');
-
-// Smooth scrolling for navbar links
-navbarLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const targetSection = document.querySelector(link.getAttribute('href'));
-        window.scrollTo({
-            top: targetSection.offsetTop - 100,  // Adjust to match the navbar height
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Update active link and stripe based on scroll position
-const observerOptions = {
-    root: null, // viewport
-    threshold: 0.5 // trigger when 50% of the section is visible
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        const link = document.querySelector(`.navbar-link[href="#${entry.target.id}"]`);
-        const stripeIndex = Array.from(sections).indexOf(entry.target);
-        
-        if (entry.isIntersecting) {
-            // Remove active from all links and apply the correct color
-            navbarLinks.forEach(link => link.classList.remove('active', 'red', 'orange', 'yellow', 'beige'));
-            stripes.forEach(stripe => stripe.classList.remove('active'));
-            
-            link.classList.add('active');
-            link.classList.add(link.dataset.color); // Add the color class to link
-            stripes[stripeIndex].classList.add('active');
+        // Portfolio modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
         }
-    });
-}, observerOptions);
 
-sections.forEach(section => {
-    observer.observe(section);
-});
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
 
+        window.onclick = function(event) {
+            var modals = document.querySelectorAll('.modal');
+            modals.forEach(function(modal) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        };
 
+        // Smooth scrolling for navbar links
+        const navbarLinks = document.querySelectorAll('.navbar-link');
+        const sections = document.querySelectorAll('section');
+        const stripes = document.querySelectorAll('.stripe');
+
+        navbarLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetSection = document.querySelector(link.getAttribute('href'));
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,  // Adjust to match the navbar height
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Update active link and stripe based on scroll position
+        const observerOptions = {
+            root: null, // viewport
+            threshold: 0.5 // trigger when 50% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const link = document.querySelector(`.navbar-link[href="#${entry.target.id}"]`);
+                const stripeIndex = Array.from(sections).indexOf(entry.target);
+                
+                if (entry.isIntersecting) {
+                    navbarLinks.forEach(link => link.classList.remove('active', 'red', 'orange', 'yellow', 'beige'));
+                    stripes.forEach(stripe => stripe.classList.remove('active'));
+                    
+                    link.classList.add('active');
+                    link.classList.add(link.dataset.color);
+                    stripes[stripeIndex].classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
