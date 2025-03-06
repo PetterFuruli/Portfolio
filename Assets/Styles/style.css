@@ -29,6 +29,15 @@ body {
     color: white;
 }
 
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: regular;
+    width: 80%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
 h1 {
     text-align: center;
     font-family: regular;
@@ -770,3 +779,38 @@ section h1 {
 }
 
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    background-color: var(--beige);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--orange);
+}
