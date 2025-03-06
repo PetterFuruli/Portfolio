@@ -8,51 +8,83 @@
     <title>Document</title>
 </head>
 <body>
-
-
-
-    <section>
-        <h1>Welcome to the show</h1>
-        <a href="#" class="first-screen" address="true"></a>
-    </section>
-
-    <section class="second-screen">
-        <h1>Hello world</h1>
-    </section>
-
-
+    
+    <nav class="navbar">
+        <div class="navbar-links">
+            <a href="#home" class="navbar-link red" data-color="red">Home</a>
+            <a href="#portfolio" class="navbar-link orange" data-color="orange">Portfolio</a>
+            <a href="#about" class="navbar-link yellow" data-color="yellow">About</a>
+            <a href="#contact" class="navbar-link beige" data-color="beige">Contact</a>
+        </div>
+    </nav>
+    
     <div class="racing-stripes">
         <div class="stripe red"></div>
         <div class="stripe orange"></div>
         <div class="stripe yellow"></div>
+        <div class="stripe beige"></div>
     </div>
-
     
+    <!-- Section content -->
+    <section id="home"><h1>Content</h1></section>
+    <section id="portfolio"><h1>Portfolio</h1></section>
+    <section id="about"><h1>About</h1></section>
+    <section id="contact"><h1>Contact</h1></section>
+    
+
     <div id="cursor">
         <div class="outer"></div>
         <div class="content-wrap">
             <div class="text"></div>
         </div>
     </div>
+
     <script src="/Assets/js/main.js"></script>
     <script>
+        const navbarLinks = document.querySelectorAll('.navbar-link');
+const sections = document.querySelectorAll('section');
+const stripes = document.querySelectorAll('.stripe');
 
-        document.body.style.overflow = 'hidden';
-  
-        $(document).ready(function() {
-
-          $('.first-screen').click(function(event) {
-            event.preventDefault(); 
-            
-
-            $('html, body').animate({
-              scrollTop: $('section.second-screen').offset().top
-            }, 'slow');
-            
-
-            document.body.style.overflow = 'auto';
-          });
+// Smooth scrolling for navbar links
+navbarLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetSection = document.querySelector(link.getAttribute('href'));
+        window.scrollTo({
+            top: targetSection.offsetTop - 100,  // Adjust to match the navbar height
+            behavior: 'smooth'
         });
-      </script>
+    });
+});
+
+// Update active link and stripe based on scroll position
+const observerOptions = {
+    root: null, // viewport
+    threshold: 0.5 // trigger when 50% of the section is visible
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const link = document.querySelector(`.navbar-link[href="#${entry.target.id}"]`);
+        const stripeIndex = Array.from(sections).indexOf(entry.target);
+        
+        if (entry.isIntersecting) {
+            // Remove active from all links and apply the correct color
+            navbarLinks.forEach(link => link.classList.remove('active', 'red', 'orange', 'yellow', 'beige'));
+            stripes.forEach(stripe => stripe.classList.remove('active'));
+            
+            link.classList.add('active');
+            link.classList.add(link.dataset.color); // Add the color class to link
+            stripes[stripeIndex].classList.add('active');
+        }
+    });
+}, observerOptions);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+
+    </script>
 </body>
 </html>

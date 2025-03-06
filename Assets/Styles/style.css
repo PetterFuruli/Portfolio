@@ -8,6 +8,11 @@
     src: url(/Assets/fonts/Oswald/static/Oswald-Bold.ttf);
 }
 
+* {
+    cursor: none;
+}
+
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -20,13 +25,14 @@ h1 {
     text-align: center;
     font-family: regular;
     font-size: 50px;
+    margin-top: 5em
 }
 
 .racing-stripes {
     width: 30px; 
     height: 100vh;
     position: fixed;
-    left: 0;
+    left: 10px;
     top: 0;
     display: flex;
 }
@@ -39,6 +45,7 @@ h1 {
 .red { background-color: red; }
 .orange { background-color: orange; }
 .yellow { background-color: yellow; }
+.beige { background-color: #F1E8B8; }
 
 .content {
     margin-left: 50px; 
@@ -134,12 +141,24 @@ h1 {
     background-size: 14px auto;
     border-radius: 50%;
     z-index: 2;
-    -webkit-animation: bounce 2s infinite 2s;
     animation: bounce 2s infinite 2s;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
-    transform: scale(1)
-  }
+    transition: transform 0.2s ease-in, background-color 0.2s ease-in, border-color 0.2s ease-in;
+    transform: scale(1);
+    will-change: transform; /* Prevents animation conflicts */
+}
+
+/* Stop the animation on hover so the scaling works */
+.first-screen:hover {
+    animation: none; /* Disables bounce on hover */
+    transform: scale(1.6);
+}
+
+/* Re-enable the animation after mouse leaves */
+.first-screen:not(:hover) {
+    animation: bounce 2s infinite 2s;
+}
+
+
   
   .first-screen:before {
       position: absolute;
@@ -153,6 +172,9 @@ h1 {
       border: 2px solid white;
       border-width: 0px 0 2px 2px;
   }
+
+
+
   
   @keyframes bounce {
     0%,
@@ -187,3 +209,150 @@ h1 {
     background-color: #ffffff;
     color: black;
   }
+
+  .content {
+    margin-left: 50px;
+    padding: 20px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: bold;
+    text-transform: uppercase;
+    opacity: 1;
+    z-index: 9999;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Reset the border-bottom for all links */
+/* Reset the background and border for navbar links */
+.navbar a {
+    position: relative;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 30px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: white;
+    background-color: transparent; /* Make sure background is transparent */
+    border-bottom: 3px solid transparent; /* Default transparent border */
+}
+
+/* Active state border for navbar link */
+.navbar a.active {
+    border-bottom: 3px solid white; /* Default active color (white) */
+}
+
+.navbar a.red.active {
+    border-bottom: 3px solid red;
+}
+.navbar a.orange.active {
+    border-bottom: 3px solid orange;
+}
+.navbar a.yellow.active {
+    border-bottom: 3px solid yellow;
+}
+.navbar a.beige.active {
+    border-bottom: 3px solid #F1E8B8;
+}
+
+/* Hover effect (optional) */
+.navbar a:hover {
+    transform: scale(1.1);
+    z-index: 9999;
+}
+
+
+
+section {
+    padding: 50px 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+section#home {
+    height: 100vh;
+    background-color: #282828;
+}
+
+section#portfolio {
+    height: 100vh;
+    background-color: #282828;
+}
+
+section#about {
+    height: 100vh;
+    background-color: #282828;
+}
+
+section#contact {
+    height: 100vh;
+    background-color: #282828;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#cursor .outer {
+    height: 50px;
+    width: 50px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+    transition: all 0.1s ease-in;
+}
+
+.content-wrap {
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    z-index: 3;
+    color: black;
+    display: block;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+/* Add Active Class Styling for Stripes */
+.racing-stripes .stripe.active {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.racing-stripes .stripe {
+    opacity: 0.3;
+    transition: opacity 0.3s ease-in-out;
+}
